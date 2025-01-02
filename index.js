@@ -1,5 +1,5 @@
 let yValues = [1, 1, 1, 1, 1];
-let xValues = ["option 1", "option 2", "option 3", "option 4", "option 5"];
+let xValues = ["1", "2", "3", "4", "5"];
 const barColors = ["#d50f25", "#eeb211", "#009925", "#3369e8", "#eeb211"];
 let chart;
 
@@ -11,7 +11,7 @@ const spinWheel = () => {
     input.disabled = "true";
     setTimeout(() => {
         input.removeAttribute("disabled");
-    }, 5000)
+    }, 5000);
 }
 
 const handleInput = (e) => {
@@ -24,8 +24,6 @@ const handleInput = (e) => {
 }
 
 const generateChart = () => {
-    const wheel = document.getElementById("wheel");
-
     if (chart){
         chart.destroy();
     }
@@ -72,4 +70,6 @@ let rotation = 0;
 button.addEventListener("click", spinWheel);
 
 const input = document.getElementsByTagName("textarea")[0];
-input.addEventListener("input", (e) => handleInput(e))
+input.addEventListener("input", (e) => handleInput(e));
+
+generateChart();
