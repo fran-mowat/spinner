@@ -1,0 +1,77 @@
+:root{
+    --red: #d50f25;
+    --yellow: #eeb211;
+    --green: #009925;
+    --blue: #3369e8;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#wheel-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    height: 100vh;
+}
+
+#spin-button{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ddd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+#wheel{
+    background-color: #ccc;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+#wheel div{
+    width: 363px;
+    height: 50%;
+    position: absolute;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+    text-align: center;
+    transform-origin: bottom;
+    left: 69px;
+}
+
+#wheel #one{
+    background-color: var(--red);
+}
+
+#wheel #two{
+    background-color: var(--blue);
+    transform: rotate(72deg);
+}
+
+#wheel #three{
+    background-color: var(--yellow);
+    transform: rotate(144deg);
+}
+
+#wheel #four{
+    background-color: var(--blue);
+    transform: rotate(216deg);
+}
+
+#wheel #five{
+    background-color: var(--green);
+    transform: rotate(288deg);
+}
