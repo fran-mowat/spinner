@@ -1,11 +1,6 @@
 :root{
-    --red: #d50f25;
-    --yellow: #eeb211;
-    --green: #009925;
-    --blue: #3369e8;
     --background: #333;
     --grey: #ccc;
-    --white: #fff;
 }
 
 body{
@@ -38,51 +33,5 @@ body{
 }
 
 #wheel{
-    background-color: var(--white);
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
     transition: transform 5s ease-in-out;
-    border: 10px solid var(--white);
-}
-
-#wheel div{
-    width: 363px;
-    height: 50%;
-    position: absolute;
-    clip-path: polygon(100% 0, 50% 100%, 0 0);
-    text-align: center;
-    transform-origin: bottom;
-    left: 69px;
-    font-weight: bold;
-    color: var(--white);
-    font-size: 24px;
-    padding-top: 25px;
-    box-sizing: border-box;
-}
-
-#wheel #one{
-    background-color: var(--red);
-}
-
-#wheel #two{
-    background-color: var(--blue);
-    transform: rotate(72deg);
-}
-
-#wheel #three{
-    background-color: var(--yellow);
-    transform: rotate(144deg);
-}
-
-#wheel #four{
-    background-color: var(--blue);
-    transform: rotate(216deg);
-}
-
-#wheel #five{
-    background-color: var(--green);
-    transform: rotate(288deg);
 }
