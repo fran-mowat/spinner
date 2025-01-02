@@ -81,7 +81,7 @@ textarea:disabled{
 }
 
 #modal{
-    display: block;
+    display: none;
     position: fixed;
     z-index: 10;
     left: 0;
