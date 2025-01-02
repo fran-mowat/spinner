@@ -11,6 +11,14 @@ const spinWheel = () => {
     input.disabled = "true";
     setTimeout(() => {
         input.removeAttribute("disabled");
+
+        let currentAngle = ((rotation - 90) % 360);
+        let segmentAngle = 360 / xValues.length;
+        let currentSegment = Math.floor(currentAngle / segmentAngle);
+        let correctIndex = xValues.length - currentSegment;
+        let segmentLabel = xValues[correctIndex - 1];
+
+        console.log("Selected segment: " + segmentLabel);     
     }, 5000);
 }
 
