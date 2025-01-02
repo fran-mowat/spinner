@@ -35,6 +35,9 @@ new Chart("wheel", {
         },
         tooltips: {
         enabled: false
+        }, 
+        animation: {
+        duration: 0  
         }
     }, 
     plugins: [ChartDataLabels]
