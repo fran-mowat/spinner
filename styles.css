@@ -41,6 +41,7 @@ body{
     border-radius: 50%;
     position: relative;
     overflow: hidden;
+    transition: transform 5s ease-in-out;
 }
 
 #wheel div{
