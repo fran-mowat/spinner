@@ -10,6 +10,7 @@ body{
     padding: 0;
     height: 100vh;
     overflow: hidden;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #wheel-container{
@@ -50,6 +51,11 @@ body{
     text-align: center;
     transform-origin: bottom;
     left: 69px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 24px;
+    padding-top: 25px;
+    box-sizing: border-box;
 }
 
 #wheel #one{
