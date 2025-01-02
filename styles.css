@@ -80,7 +80,7 @@ textarea:disabled{
     cursor: not-allowed;
 }
 
-.modal{
+#modal{
     display: block;
     position: fixed;
     z-index: 10;
@@ -92,13 +92,13 @@ textarea:disabled{
     overflow: auto;
 }
 
-.close{
+#close{
     float: right;
     width: 28px;
     filter: brightness(5); 
 }
 
-.close:hover{
+#close:hover{
     filter: brightness(0);
 }
 
