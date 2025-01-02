@@ -18,7 +18,10 @@ const spinWheel = () => {
         let correctIndex = xValues.length - currentSegment;
         let segmentLabel = xValues[correctIndex - 1];
 
-        console.log("Selected segment: " + segmentLabel);     
+        console.log("Selected segment: " + segmentLabel);  
+        const modal = document.getElementById("modal");
+        modal.style.display = "block";   
+        document.addEventListener("click", hideRulesHandler);
     }, 5000);
 }
 
@@ -99,5 +102,20 @@ button.addEventListener("click", spinWheel);
 
 const input = document.getElementsByTagName("textarea")[0];
 input.addEventListener("input", (e) => handleInput(e));
+
+const hideRulesHandler = (e) => {
+    const modal = document.getElementById("selected-segment"); 
+    const closeButton = document.getElementById("close");
+    if (!modal.contains(e.target) || e.target === closeButton) { 
+        hideRules(); 
+    }
+}
+
+const hideRules = () => {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+
+    document.removeEventListener("click", hideRules);
+}
 
 generateChart();
