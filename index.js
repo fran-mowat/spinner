@@ -38,7 +38,8 @@ new Chart("wheel", {
         }, 
         animation: {
         duration: 0  
-        }
+        },
+        maintainAspectRatio: false,
     }, 
     plugins: [ChartDataLabels]
 });
