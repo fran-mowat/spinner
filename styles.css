@@ -1,5 +1,6 @@
 :root{
     --background: #333;
+    --light-background: #444;
     --grey: #ccc;
 }
 
@@ -20,7 +21,7 @@ body{
     height: 100vh;
     position: relative;
     width: 70%;
-    padding: 30px;
+    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -41,7 +42,24 @@ body{
     transition: transform 5s ease-in-out;
 }
 
+#right{
+    width: 30%;
+}
+
+#controls{
+    background-color: var(--light-background);
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: calc(100vh - 30px);
+    margin: 15px;
+}
+
 textarea{
-    width: 200px;
-    height: 100px;
+    width: calc(100% - 40px);
+    height: 250px;
+    resize: none;
+    margin: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 5px;
+    box-sizing: border-box;
 }
