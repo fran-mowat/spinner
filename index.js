@@ -8,6 +8,10 @@ const spinWheel = () => {
     rotation += value;
     const wheel = document.getElementById("wheel");
     wheel.style.transform = "rotate(" + rotation + "deg)";
+    input.disabled = "true";
+    setTimeout(() => {
+        input.removeAttribute("disabled");
+    }, 5000)
 }
 
 const handleInput = (e) => {
