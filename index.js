@@ -1,6 +1,6 @@
 let yValues = [1, 1, 1, 1, 1];
 let xValues = ["1", "2", "3", "4", "5"];
-const barColors = ["#d50f25", "#eeb211", "#009925", "#3369e8", "#eeb211"];
+let barColors = ["#3369e8", "#d50f25", "#eeb211", "#009925", "#d50f25"];
 let chart;
 
 const spinWheel = () => {
@@ -20,6 +20,26 @@ const handleInput = (e) => {
 
     xValues = inputValues;
     yValues = Array(inputValues.length).fill(1);
+
+    barColors = [];
+
+    for (let i = 0; i < Math.floor(inputValues.length / 4); i++){
+        barColors.push("#3369e8", "#d50f25", "#eeb211", "#009925");
+    }
+
+    let remainder = inputValues.length % 4; 
+    switch (remainder){
+        case 1: 
+            barColors.push("#d50f25");
+            break;
+        case 2: 
+            barColors.push("#3369e8", "#d50f25");
+            break;
+        case 3: 
+            barColors.push("#3369e8", "#d50f25", "#eeb211");
+            break;
+    }
+
     generateChart();
 }
 
