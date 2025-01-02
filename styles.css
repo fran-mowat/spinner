@@ -3,6 +3,9 @@
     --yellow: #eeb211;
     --green: #009925;
     --blue: #3369e8;
+    --background: #333;
+    --grey: #ccc;
+    --white: #fff;
 }
 
 body{
@@ -17,7 +20,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #333;
+    background-color: var(--background);
     height: 100vh;
 }
 
@@ -25,7 +28,7 @@ body{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #ddd;
+    background-color: var(--grey);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -35,13 +38,14 @@ body{
 }
 
 #wheel{
-    background-color: #ccc;
+    background-color: var(--white);
     width: 500px;
     height: 500px;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
     transition: transform 5s ease-in-out;
+    border: 10px solid var(--white);
 }
 
 #wheel div{
@@ -53,7 +57,7 @@ body{
     transform-origin: bottom;
     left: 69px;
     font-weight: bold;
-    color: #fff;
+    color: var(--white);
     font-size: 24px;
     padding-top: 25px;
     box-sizing: border-box;
