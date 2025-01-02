@@ -9,14 +9,19 @@ body{
     height: 100vh;
     overflow: hidden;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    background-color: var(--background);;
 }
 
 #wheel-container{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--background);
     height: 100vh;
+    position: relative;
+    width: 70%;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 #spin-button{
@@ -34,4 +39,9 @@ body{
 
 #wheel{
     transition: transform 5s ease-in-out;
+}
+
+textarea{
+    width: 200px;
+    height: 100px;
 }
