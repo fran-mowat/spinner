@@ -63,3 +63,7 @@ textarea{
     padding: 5px;
     box-sizing: border-box;
 }
+
+textarea:disabled{
+    cursor: not-allowed;
+}
