@@ -18,9 +18,12 @@ const spinWheel = () => {
         let correctIndex = xValues.length - currentSegment;
         let segmentLabel = xValues[correctIndex - 1];
 
-        console.log("Selected segment: " + segmentLabel);  
         const modal = document.getElementById("modal");
-        modal.style.display = "block";   
+        modal.style.display = "block";
+
+        const selectedText = document.getElementById("selected");
+        selectedText.innerHTML = segmentLabel;
+        
         document.addEventListener("click", hideRulesHandler);
     }, 5000);
 }
