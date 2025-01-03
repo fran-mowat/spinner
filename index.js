@@ -46,10 +46,13 @@ const handleInput = () => {
 
 const handleRemove = () => {
     let inputValues = textarea.value.split("\n");
-    inputValues = inputValues.filter(item => (item !== "") && (item !== selectedSegment));
+    inputValues = inputValues.filter(item => (item !== ""));
+
+    let index = inputValues.indexOf(selectedSegment);
+    inputValues.splice(index, 1);
 
     textarea.value = inputValues.join("\n");
-    refreshChart(inputValues);
+    refreshChart(inputValues);  
 }
 
 const refreshChart = (inputValues) => {
