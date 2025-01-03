@@ -59,8 +59,8 @@ const refreshChart = (inputValues) => {
     xValues = inputValues;
 
     xValues.forEach((value, index) => {
-        if (value.length > 10){
-            xValues[index] = value.slice(0, 7) + "...";
+        if (value.length > 15){
+            xValues[index] = value.slice(0, 12) + "...";
         }
     })
     yValues = Array(inputValues.length).fill(1);
@@ -93,7 +93,11 @@ const generateChart = () => {
     }
 
     let fontSize = 20; 
-    if (xValues.length > 20){
+    if (xValues.length > 40){
+        fontSize = 5;
+    } else if (xValues.length > 30){
+        fontSize = 10;
+    } else if (xValues.length > 20){
         fontSize = 15;
     }
 
@@ -116,6 +120,16 @@ const generateChart = () => {
                     }, 
                     font: {
                         size: fontSize
+                    }, 
+                    rotation: function(context) { 
+                        let index = context.dataIndex;
+                        let chart = context.chart;
+                        let data = chart.data.datasets[0];
+                        let meta = chart.getDatasetMeta(0);
+                        let total = data.data.reduce((acc, val) => acc + val, 0);
+                        let currentAngle = (meta.data[index]._model.startAngle + meta.data[index]._model.endAngle) / 2;
+                        let percentage = data.data[index] / total;
+                        return (currentAngle + percentage) * (180 / Math.PI);          
                     }
                 }
             },
