@@ -10,6 +10,9 @@ const spinWheel = () => {
     const wheel = document.getElementById("wheel");
     wheel.style.transform = "rotate(" + rotation + "deg)";
     textarea.disabled = "true";
+
+    button.removeEventListener("click", spinWheel);
+
     setTimeout(() => {
         textarea.removeAttribute("disabled");
 
@@ -26,6 +29,7 @@ const spinWheel = () => {
         selectedText.innerHTML = selectedSegment;
         
         document.addEventListener("click", hideModalHandler);
+        button.addEventListener("click", spinWheel);
     }, 5000);
 }
 
