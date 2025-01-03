@@ -3,7 +3,7 @@
     --light-background: #444;
     --grey: #ccc;
     --dark-grey: #c6c6c6;
-    --light-grey: #eee;
+    --light-grey: #e6e6e6;
     --light-grey-shadow: #ddd;
 }
 
@@ -16,6 +16,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color: var(--background);
+    font-size: 20px;
 }
 
 #wheel-container{
@@ -174,6 +175,7 @@ input{
     padding: 5px 13px;
     background-color: var(--light-grey);
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
 input:hover{
