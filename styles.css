@@ -100,13 +100,18 @@ body{
     box-sizing: border-box;
     height: calc(100vh - 30px);
     margin: 15px;
+    padding: 20px;
+}
+
+#controls p{
+    color: #fff;
+    margin-top: 0;
 }
 
 textarea{
     width: calc(100% - 40px);
     height: 250px;
     resize: none;
-    margin: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 5px;
     box-sizing: border-box;
