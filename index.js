@@ -12,6 +12,7 @@ const spinWheel = () => {
     textarea.disabled = "true";
 
     button.removeEventListener("click", spinWheel);
+    button.classList.remove("active");
 
     const spinText = document.getElementsByTagName("span")[0];
     spinText.style.display = "none";
@@ -35,6 +36,7 @@ const spinWheel = () => {
         
         document.addEventListener("click", hideModalHandler);
         button.addEventListener("click", spinWheel);
+        button.classList.add("active");
     }, 5000);
 }
 
