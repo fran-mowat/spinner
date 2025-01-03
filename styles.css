@@ -59,6 +59,13 @@ body{
     }
 }
 
+#spin-button span{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
 #wheel{
     transition: transform 5s ease-in-out;
 }
