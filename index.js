@@ -5,7 +5,7 @@ let chart;
 let selectedSegment = "";
 
 const spinWheel = () => {
-    let value = Math.ceil(Math.random() * 3600);
+    let value = Math.ceil((Math.random() + 100) * 15);
     rotation += value;
     const wheel = document.getElementById("wheel");
     wheel.style.transform = "rotate(" + rotation + "deg)";
