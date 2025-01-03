@@ -3,8 +3,7 @@
     --light-background: #444;
     --grey: #ccc;
     --dark-grey: #c6c6c6;
-    --light-grey: #e6e6e6;
-    --light-grey-shadow: #ddd;
+    --light-grey: #ddd;
 }
 
 body{
@@ -56,13 +55,6 @@ body{
     box-shadow: 0px 0px 20px 2px #555;
 }
 
-@media (min-width: 768px) {
-    #spin-button{
-        width: 80px;
-        height: 80px;
-    }
-}
-
 #spin-button.active:hover{
     background-color: var(--dark-grey);
     box-shadow: 0px 0px 20px 2px #565656;
@@ -73,6 +65,18 @@ body{
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    #spin-button{
+        width: 80px;
+        height: 80px;
+    }
+
+    #spin-button span{
+        font-size: 20px;
+    }
 }
 
 #wheel{
@@ -126,6 +130,7 @@ textarea{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 5px;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 textarea:disabled{
@@ -179,5 +184,5 @@ input{
 }
 
 input:hover{
-    background-color: var(--light-grey-shadow);
+    background-color: var(--grey);
 }
