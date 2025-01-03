@@ -13,6 +13,9 @@ const spinWheel = () => {
 
     button.removeEventListener("click", spinWheel);
 
+    const spinText = document.getElementsByTagName("span")[0];
+    spinText.style.display = "none";
+
     setTimeout(() => {
         textarea.removeAttribute("disabled");
 
@@ -27,6 +30,8 @@ const spinWheel = () => {
 
         const selectedText = document.getElementById("selected");
         selectedText.innerHTML = selectedSegment;
+
+        spinText.style.display = "inline";
         
         document.addEventListener("click", hideModalHandler);
         button.addEventListener("click", spinWheel);
