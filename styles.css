@@ -88,19 +88,23 @@ body{
     width: 100%;
 }
 
-@media (min-width: 650px){
-    #right{
-        width: 30%;
-    }
-}
-
 #controls{
     background-color: var(--light-background);
     border-radius: 10px;
     box-sizing: border-box;
-    height: calc(100vh - 30px);
+    height: fit-content;
     margin: 15px;
     padding: 20px;
+}
+
+@media (min-width: 650px){
+    #right{
+        width: 30%;
+    }
+
+    #controls{
+        height: calc(100vh - 30px);
+    }
 }
 
 #controls p{
@@ -109,7 +113,7 @@ body{
 }
 
 textarea{
-    width: calc(100% - 40px);
+    width: 100%;
     height: 250px;
     resize: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
