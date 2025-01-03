@@ -57,6 +57,12 @@ const handleRemove = () => {
 
 const refreshChart = (inputValues) => {
     xValues = inputValues;
+
+    xValues.forEach((value, index) => {
+        if (value.length > 10){
+            xValues[index] = value.slice(0, 7) + "...";
+        }
+    })
     yValues = Array(inputValues.length).fill(1);
 
     barColors = [];
