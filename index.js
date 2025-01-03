@@ -128,8 +128,9 @@ const hideModalHandler = (e) => {
     const closeButton = document.getElementById("close");
 
     const removeButton = document.getElementsByTagName("input")[0];
+    const keepButton = document.getElementsByTagName("input")[1];
 
-    if (!modal.contains(e.target) || e.target === closeButton || e.target === removeButton) { 
+    if (!modal.contains(e.target) || e.target === closeButton || e.target === removeButton || e.target === keepButton) { 
         hideModal(); 
     }
 
