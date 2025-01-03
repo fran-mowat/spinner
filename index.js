@@ -5,44 +5,56 @@ let chart;
 let selectedSegment = "";
 
 const spinWheel = () => {
-    let value = Math.ceil((Math.random() + 100) * 15);
-    rotation += value;
-    const wheel = document.getElementById("wheel");
-    wheel.style.transform = "rotate(" + rotation + "deg)";
-    textarea.disabled = "true";
+    let inputValues = textarea.value.split("\n");
+    inputValues = inputValues.filter(item => (item !== ""));
+    if (inputValues.length > 0){
+        let value = Math.ceil((Math.random() + 100) * 15);
+        rotation += value;
+        const wheel = document.getElementById("wheel");
+        wheel.style.transform = "rotate(" + rotation + "deg)";
+        textarea.disabled = "true";
 
-    button.removeEventListener("click", spinWheel);
-    button.classList.remove("active");
+        button.removeEventListener("click", spinWheel);
+        button.classList.remove("active");
 
-    const spinText = document.getElementsByTagName("span")[0];
-    spinText.style.display = "none";
+        const spinText = document.getElementsByTagName("span")[0];
+        spinText.style.display = "none";
 
-    setTimeout(() => {
-        textarea.removeAttribute("disabled");
+        setTimeout(() => {
+            textarea.removeAttribute("disabled");
 
-        let currentAngle = ((rotation - 90) % 360);
-        let segmentAngle = 360 / xValues.length;
-        let currentSegment = Math.floor(currentAngle / segmentAngle);
-        let correctIndex = xValues.length - currentSegment;
-        selectedSegment = xValues[correctIndex - 1];
+            let currentAngle = ((rotation - 90) % 360);
+            let segmentAngle = 360 / xValues.length;
+            let currentSegment = Math.floor(currentAngle / segmentAngle);
+            let correctIndex = xValues.length - currentSegment;
+            selectedSegment = xValues[correctIndex - 1];
 
-        const modal = document.getElementById("modal");
-        modal.style.display = "block";
+            const modal = document.getElementById("modal");
+            modal.style.display = "block";
 
-        const selectedText = document.getElementById("selected");
-        selectedText.innerHTML = "Selected value: " + selectedSegment;
+            const selectedText = document.getElementById("selected");
+            selectedText.innerHTML = "Selected value: " + selectedSegment;
 
-        spinText.style.display = "inline";
-        
-        document.addEventListener("click", hideModalHandler);
-        button.addEventListener("click", spinWheel);
-        button.classList.add("active");
-    }, 5000);
+            spinText.style.display = "inline";
+            
+            document.addEventListener("click", hideModalHandler);
+            button.addEventListener("click", spinWheel);
+            button.classList.add("active");
+        }, 5000);
+    }
 }
 
 const handleInput = () => {
     let inputValues = textarea.value.split("\n");
     inputValues = inputValues.filter(item => (item !== ""));
+
+    if (inputValues.length > 0){
+        button.classList.add("active");
+    } else {
+        button.classList.remove("active");
+        const spinText = document.getElementsByTagName("span")[0];
+        spinText.style.display = "none";
+    }
     refreshChart(inputValues);
 }
 
