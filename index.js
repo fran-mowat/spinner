@@ -92,6 +92,11 @@ const generateChart = () => {
         chart.destroy();
     }
 
+    let fontSize = 20; 
+    if (xValues.length > 20){
+        fontSize = 15;
+    }
+
     chart = new Chart("wheel", {
         type: "pie",
         data: {
@@ -110,7 +115,7 @@ const generateChart = () => {
                         return context.chart.data.labels[context.dataIndex]; 
                     }, 
                     font: {
-                        size: 20
+                        size: fontSize
                     }
                 }
             },
