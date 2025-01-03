@@ -2,36 +2,48 @@ let yValues = [1, 1, 1, 1, 1];
 let xValues = ["1", "2", "3", "4", "5"];
 let barColors = ["#3369e8", "#d50f25", "#eeb211", "#009925", "#d50f25"];
 let chart;
+let selectedSegment = "";
 
 const spinWheel = () => {
     let value = Math.ceil(Math.random() * 3600);
     rotation += value;
     const wheel = document.getElementById("wheel");
     wheel.style.transform = "rotate(" + rotation + "deg)";
-    input.disabled = "true";
+    textarea.disabled = "true";
     setTimeout(() => {
-        input.removeAttribute("disabled");
+        textarea.removeAttribute("disabled");
 
         let currentAngle = ((rotation - 90) % 360);
         let segmentAngle = 360 / xValues.length;
         let currentSegment = Math.floor(currentAngle / segmentAngle);
         let correctIndex = xValues.length - currentSegment;
-        let segmentLabel = xValues[correctIndex - 1];
+        selectedSegment = xValues[correctIndex - 1];
 
         const modal = document.getElementById("modal");
         modal.style.display = "block";
 
         const selectedText = document.getElementById("selected");
-        selectedText.innerHTML = segmentLabel;
+        selectedText.innerHTML = selectedSegment;
         
-        document.addEventListener("click", hideRulesHandler);
+        document.addEventListener("click", hideModalHandler);
     }, 5000);
 }
 
-const handleInput = (e) => {
-    let inputValues = e.target.value.split("\n");
-    inputValues = inputValues.filter(item => item !== "");
+const handleInput = () => {
+    let inputValues = textarea.value.split("\n");
+    inputValues = inputValues.filter(item => (item !== ""));
+    refreshChart(inputValues);
+}
 
+const handleRemove = () => {
+    let inputValues = textarea.value.split("\n");
+    inputValues = inputValues.filter(item => (item !== "") && (item !== selectedSegment));
+
+    textarea.value = inputValues.join("\n");
+    refreshChart(inputValues);
+}
+
+const refreshChart = (inputValues) => {
     xValues = inputValues;
     yValues = Array(inputValues.length).fill(1);
 
@@ -99,26 +111,33 @@ const generateChart = () => {
     });
 }
 
+const hideModalHandler = (e) => {
+    const modal = document.getElementById("selected-segment"); 
+    const closeButton = document.getElementById("close");
+
+    const removeButton = document.getElementsByTagName("input")[0];
+
+    if (!modal.contains(e.target) || e.target === closeButton || e.target === removeButton) { 
+        hideModal(); 
+    }
+
+    if (e.target === removeButton){
+        handleRemove();
+    }
+}
+
+const hideModal = () => {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+
+    document.removeEventListener("click", hideModal);
+}
+
 const button = document.getElementById("spin-button");
 let rotation = 0; 
 button.addEventListener("click", spinWheel);
 
-const input = document.getElementsByTagName("textarea")[0];
-input.addEventListener("input", (e) => handleInput(e));
-
-const hideRulesHandler = (e) => {
-    const modal = document.getElementById("selected-segment"); 
-    const closeButton = document.getElementById("close");
-    if (!modal.contains(e.target) || e.target === closeButton) { 
-        hideRules(); 
-    }
-}
-
-const hideRules = () => {
-    const modal = document.getElementById("modal");
-    modal.style.display = "none";
-
-    document.removeEventListener("click", hideRules);
-}
+const textarea = document.getElementsByTagName("textarea")[0];
+textarea.addEventListener("input", (e) => handleInput(e));
 
 generateChart();
