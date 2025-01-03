@@ -29,7 +29,7 @@ const spinWheel = () => {
         modal.style.display = "block";
 
         const selectedText = document.getElementById("selected");
-        selectedText.innerHTML = selectedSegment;
+        selectedText.innerHTML = "Selected value: " + selectedSegment;
 
         spinText.style.display = "inline";
         
